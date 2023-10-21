@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true, // Enables all strict type-checking options
+    "esModuleInterop": true, // Enables compatibility with CommonJS modules
+    "sourceMap": false, // Generates source map files
+    "experimentalDecorators": true, // Enables support for decorators
+    "skipLibCheck": false // Skips type checking of declaration files
+  }
+}

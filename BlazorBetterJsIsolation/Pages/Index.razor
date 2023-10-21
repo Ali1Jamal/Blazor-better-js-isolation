@@ -1,0 +1,36 @@
+﻿@page "/"
+@inject IJSRuntime JS
+@using BlazorBetterJsIsolation.Extensions;
+@implements IAsyncDisposable
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+<button @onclick="ShowAlertWithRandomName">Click me</button>
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    IJSObjectReference module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.ComponentModule(this);
+        }
+    }
+    async Task ShowAlertWithRandomName()
+    {
+        await module.InvokeVoidAsync("shortName");
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        try
+        {
+            if (module != null)
+                await module.DisposeAsync();
+        }
+        catch { }
+    }
+}
