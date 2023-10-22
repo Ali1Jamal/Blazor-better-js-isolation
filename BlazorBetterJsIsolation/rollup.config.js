@@ -6,7 +6,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import path from 'path';
 import typescript from '@rollup/plugin-typescript';
 import del from 'rollup-plugin-delete';
-import terser from '@rollup/plugin-terser'; //A Rollup plugin to generate a minified bundle with terser.
+import terser from '@rollup/plugin-terser'; //A Rollup plugin to generate a minified bundle.
 
 let inputFiles = ['Pages/**/*.js', 'Pages/**/*.ts'];
 
@@ -36,6 +36,6 @@ export default {
         }),
         typescript(),
         del({ targets: './wwwroot/js/' })//, delete existing files before copy new files [optional]
-        // terser()  i'm only using terser in production to minify js files. [optional]
+        // terser()  i'm only using terser in production to minify files. [optional]
     ]
 };
