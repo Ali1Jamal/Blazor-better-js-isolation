@@ -36,6 +36,6 @@ export default {
         }),
         typescript(),
         del({ targets: './wwwroot/js/' })//, delete existing files before copy new files [optional]
-        // terser()  i'm only using terser in production only. [optional]
+        // terser()  i'm only using terser in production to minify js files. [optional]
     ]
 };
